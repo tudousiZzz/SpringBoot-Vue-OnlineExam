@@ -3,6 +3,8 @@ package com.exam.controller;
 import com.exam.entity.*;
 import com.exam.serviceimpl.LoginServiceImpl;
 import com.exam.util.ApiResultHandler;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@Api(value = "登录接口", tags = {"登录"})
 public class LoginController {
 
     @Autowired
     private LoginServiceImpl loginService;
 
     @PostMapping("/login")
+    @ApiOperation("根据用户名和密码进行登录")
     public ApiResult login(@RequestBody Login login) {
 
         Integer username = login.getUsername();

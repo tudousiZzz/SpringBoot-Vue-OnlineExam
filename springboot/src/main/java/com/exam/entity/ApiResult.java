@@ -1,6 +1,9 @@
 package com.exam.entity;
 
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 public class ApiResult<T> {
     /**
      * 错误码，表示一种错误类型
